@@ -32,18 +32,18 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-acario-dark)
+(setq doom-theme 'doom-one)
 
 (setq doom-font (font-spec
-                 :family "Red Hat Mono"
-                 :size 20)
+                 :family "Iosevka"
+                 :size 22)
 
       doom-variable-pitch-font (font-spec
-                                :family "Red Hat Mono"
-                                :size 20)
+                                :family "Iosevka"
+                                :size 22)
 
       doom-big-font (font-spec
-                     :family "Red Hat Mono"
+                     :family "Iosevka"
                      :size 24))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -52,28 +52,59 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+;; Show date and time in modeline
+(setq display-time-format "%d %B %Y, %H:%M"
+      display-time-default-load-average nil)
+
+(display-time-mode 1)
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 ;;(setq org-directory "~/org/")
 
 ;; Org-roam
 (after! org-roam
-  (setq org-roam-directory (file-truename "~/Desktop/org-roam/")
-        ;; Show tags in completion
+  ;; Org-roam folder
+  (setq org-roam-directory (file-truename "~/Desktop/data/notes/")
+
+        ;; Show tags in org-roam-node-find
         org-roam-node-display-template
         (concat "${title:*} "
                 (propertize "${tags:20}" 'face 'org-tag)))
 
-  ;; Automatically keep the database in sync
-  (org-roam-db-autosync-mode))
-
-(after! org-roam
+  ;; Capture templates
   (setq org-roam-capture-templates
         '(("d" "default" plain "%?"
            :if-new
-           (file+head "${slug}.org"
+           (file+head "%(read-file-name \"File: \" org-roam-directory)"
                       "#+title: ${title}\n#+filetags:\n\n")
-           :unnarrowed t))))
+           :unnarrowed t)))
+
+  ;; Keep database updated automatically
+  (org-roam-db-autosync-mode))
+
+;; Add trailing lines
+(after! ws-butler
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (remove-hook 'before-save-hook #'ws-butler-before-save t))))
+
+(after! org
+  (setq org-agenda-files
+        (directory-files-recursively
+         "~/Desktop/data/notes/"
+         "\\.org$")))
+
+(after! org-roam
+  (setq org-roam-graph-executable
+        "C:/Program Files/Graphviz/bin/dot.exe")
+  (setq org-roam-graph-format "svg"))
+
+;; Pomodoro stuff
+(setq org-clock-sound "~/.doom.d/pomodoro/pomodoro-bell.wav")
+;;
+
+(save-place-mode 1)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
