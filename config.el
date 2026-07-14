@@ -65,7 +65,7 @@
 ;; Org-roam
 (after! org-roam
   ;; Org-roam folder
-  (setq org-roam-directory (file-truename "~/Desktop/data/notes/")
+  (setq org-roam-directory (file-truename "~/data/notes/")
 
         ;; Show tags in org-roam-node-find
         org-roam-node-display-template
@@ -92,16 +92,11 @@
 (after! org
   (setq org-agenda-files
         (directory-files-recursively
-         "~/Desktop/data/notes/"
+         "~/data/notes/"
          "\\.org$")))
 
-(after! org-roam
-  (setq org-roam-graph-executable
-        "C:/Program Files/Graphviz/bin/dot.exe")
-  (setq org-roam-graph-format "svg"))
-
 ;; Pomodoro stuff
-(setq org-clock-sound "~/.doom.d/pomodoro/pomodoro-bell.wav")
+(setq org-clock-sound "~/.config/doom/pomodoro/pomodoro-bell.wav")
 ;;
 
 (save-place-mode 1)
