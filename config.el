@@ -53,7 +53,7 @@
 (setq display-line-numbers-type t)
 
 ;; Show date and time in modeline
-(setq display-time-format "%d %B %Y, %H:%M"
+(setq display-time-format "%A, %d %B %Y, %H:%M"
       display-time-default-load-average nil)
 
 (display-time-mode 1)
