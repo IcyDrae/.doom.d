@@ -97,9 +97,24 @@
 
 ;; Pomodoro stuff
 (setq org-clock-sound "~/.config/doom/pomodoro/pomodoro-bell.wav")
+
+(map! :leader
+      :desc "Start org timer"
+      "o t s" #'org-timer-set-timer
+
+      :desc "Stop org timer"
+      "o t k" #'org-timer-stop
+
+      :desc "Pause org timer"
+      "o t p" #'org-timer-pause-or-continue
+
+      :desc "Continue org timer"
+      "o t c" #'org-timer-pause-or-continue)
 ;;
 
+;; Save place in document when reopening files
 (save-place-mode 1)
+;;
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
