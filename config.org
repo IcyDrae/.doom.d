@@ -1,3 +1,16 @@
+#+title: Config
+
+[[file:./wallpapers/TomBombadil.jpg]]
+
+* Contents :toc:
+- [[#doom-default-settings][Doom default settings]]
+- [[#org-mode][org-mode]]
+  - [[#defaults][Defaults]]
+  - [[#org-roam][org-roam]]
+  - [[#org-pomodoro][Org pomodoro]]
+
+* Doom default settings
+#+begin_src emacs-lisp
 ;; Fonts
 (setq doom-theme 'doom-ayu-mirage)
 
@@ -28,7 +41,11 @@
 
 ;; Save place in document when reopening files
 (save-place-mode 1)
+#+end_src
 
+* org-mode
+** Defaults
+#+begin_src emacs-lisp
 ;; Add trailing lines
 (after! ws-butler
   (add-hook 'org-mode-hook
@@ -38,7 +55,10 @@
 ;; Automatically display inline images when opening Org files
 (after! org
   (add-hook 'org-mode-hook #'org-display-inline-images))
+#+end_src
 
+** org-roam
+#+begin_src emacs-lisp
 (after! org-roam
   ;; Org-roam folder
   (setq org-roam-directory (file-truename "~/data/notes/")
@@ -65,7 +85,10 @@
         (directory-files-recursively
          "~/data/notes/"
          "\\.org$")))
+#+end_src
 
+** Org pomodoro
+#+begin_src emacs-lisp
 (setq org-clock-sound "~/.config/doom/pomodoro/pomodoro-bell.wav")
 
 (map! :leader
@@ -80,3 +103,14 @@
 
       :desc "Continue org timer"
       "o t c" #'org-timer-pause-or-continue)
+#+end_src
+
+
+
+
+
+
+
+
+
+

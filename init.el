@@ -160,6 +160,7 @@
        ;;ocaml             ; an objective camel
        ;;odin              ; C, minus its footguns
        (org
+        +pretty
         +roam)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
@@ -198,5 +199,5 @@
        ;;(rss +org)        ; emacs as an RSS reader
 
        :config
-       ;;literate
+       literate
        (default +bindings +smartparens))
