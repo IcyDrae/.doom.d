@@ -15,16 +15,16 @@
 (setq doom-theme 'doom-ayu-mirage)
 
 (setq doom-font (font-spec
-                 :family "Iosevka"
-                 :size 22)
+                 :family "Ioskeley Mono"
+                 :size 20)
 
       doom-variable-pitch-font (font-spec
-                                :family "Iosevka"
-                                :size 22)
+                                :family "Ioskeley Mono"
+                                :size 20)
 
       doom-big-font (font-spec
-                     :family "Iosevka"
-                     :size 24))
+                     :family "Ioskeley Mono"
+                     :size 22))
 
 ;; Maximize on start
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
