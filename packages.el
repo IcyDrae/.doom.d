@@ -8,7 +8,11 @@
 ;;
 ;; Use 'C-h f package\!' to look up documentation for the `package!' macro.
 
+;; Touch typing
 (package! speed-type)
+
+;; Org-roam-ui
+(package! org-roam-ui)
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
