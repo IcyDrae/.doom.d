@@ -2,15 +2,15 @@
 (setq doom-theme 'doom-ayu-mirage)
 
 (setq doom-font (font-spec
-                 :family "Ioskeley Mono"
+                 :family "IoskeleyMono Nerd Font Medium"
                  :size 22)
 
       doom-variable-pitch-font (font-spec
-                                :family "Ioskeley Mono"
+                                :family "IoskeleyMono Nerd Font Medium"
                                 :size 22)
 
       doom-big-font (font-spec
-                     :family "Ioskeley Mono"
+                     :family "IoskeleyMono Nerd Font Medium"
                      :size 24))
 
 ;; Maximize on start
