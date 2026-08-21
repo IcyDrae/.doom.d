@@ -1,5 +1,5 @@
 ;; Fonts
-(setq doom-theme 'doom-ayu-mirage)
+(setq doom-theme 'doom-dracula)
 
 (setq doom-font (font-spec
                  :family "IoskeleyMono Nerd Font Medium"
