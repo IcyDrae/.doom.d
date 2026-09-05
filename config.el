@@ -92,7 +92,7 @@
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
 
-(setq org-clock-sound "~/.config/doom/pomodoro/pomodoro-bell.wav")
+(setq org-clock-sound "~/.config/.doom.d/pomodoro/pomodoro-bell.wav")
 
 (map! :leader
       :desc "Start org timer"
